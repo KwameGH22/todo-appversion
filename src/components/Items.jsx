@@ -2,7 +2,7 @@ import React from 'react';
 import { MdDeleteForever } from "react-icons/md";
 import { MdCancel } from "react-icons/md";
 
-const Items = () => {
+const Items = ({tasks, deleteTask}) => {
   return (
     <div>
         <div style={{position:'absolute', left: '24.5rem', marginTop: '5px', borderRadius: '10px', borderStyle: 'none'}}>
@@ -12,10 +12,11 @@ const Items = () => {
                         alignItems:'baseline',
                         width: '450px',
                         }}>
-                <MdCancel style={{color:'blue', marginLeft: '20px'}}/>
-                <p>item 1</p>
-                <MdDeleteForever style={{color:'red', marginRight: '20px'}} />
                 
+                <MdCancel style={{color:'blue', marginLeft: '20px'}}/>
+                <p>{tasks.task}</p>
+                <MdDeleteForever onClick={deleteTask(tasks.id)} style={{color:'red', marginRight: '20px'}} />
+                    
             </div>
             <hr style={{display: 'block', width:'450px'}}/>
             
